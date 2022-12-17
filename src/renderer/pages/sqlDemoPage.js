@@ -2,6 +2,7 @@ import React from 'react';
 import Masthead from './mastheads/mainMasthead.js';
 import LeftNavbar from './navbars/leftNav.js';
 import * as MiscAppFxns from "./lib/app/misc.ts";
+import SqlDemoApp from "./sqlDemoApp.js"
 
 const updateMainColWidth = MiscAppFxns.updateMainColWidth;
 
@@ -24,7 +25,7 @@ export default class SqlDemoPage extends React.Component {
                 <div id="mainCol" >
                     <Masthead />
                     <div id="mainPanel" >
-
+                        <SqlDemoApp />
                     </div>
                 </div>
             </>
