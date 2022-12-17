@@ -1,3 +1,5 @@
+<img src=".erb/ing/app-snapshot.png" width="100%" />
+
 If you want to use sqlite3 on the front end (renderer process) of your electron app + you plan on packaging it at some point, [electron-react-boilerplate-sqlite3](https://github.com/wds4/electron-react-boilerplate-sqlite3) has got you covered!
 
 This template is a Dec 2022 fork of the popular [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate) (erb), augmented with the widely used [sqlite3](https://github.com/TryGhost/node-sqlite3) for persistent local data storage. erb is a relatively well fleshed-out starting point for building an electron app with a number of tools that come packaged with it, including [React Refresh](https://www.npmjs.com/package/react-refresh) for hot reloading, [webpack](https://webpack.js.org) for bundling and [electron-builder](https://www.electron.build) for packaging.
