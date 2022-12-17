@@ -14,6 +14,9 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import webpackPaths from '../../.erb/configs/webpack.paths'
+import sqlite from 'sqlite3';
+const sqlite3 = sqlite.verbose();
 
 class AppUpdater {
   constructor() {
@@ -42,6 +45,21 @@ const isDebug =
 if (isDebug) {
   require('electron-debug')();
 }
+
+const databaseName = "myCoolDatabase.sqlite3";
+const sqlPath_dev = path.join(webpackPaths.appPath,'sql',databaseName);
+const sqlPath_prod = path.join(app.getPath('userData'), databaseName)
+const sqlPath = isDebug
+  ? sqlPath_dev
+  : sqlPath_prod
+
+const db = new sqlite3.Database(sqlPath, (err) => {
+    if (err) console.error('Database opening error: ', err);
+});
+
+db.serialize(() => {
+  db.run('CREATE TABLE IF NOT EXISTS myCoolTable (info TEXT NULL)');
+});
 
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
@@ -119,6 +137,7 @@ const createWindow = async () => {
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even
   // after all windows have been closed
+  db.close();
   if (process.platform !== 'darwin') {
     app.quit();
   }
