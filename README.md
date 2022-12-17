@@ -1,4 +1,4 @@
-<img src=".erb/ing/app-snapshot.png" width="100%" />
+<img src=".erb/img/app-snapshot.png" width="100%" />
 
 If you want to use sqlite3 on the front end (renderer process) of your electron app + you plan on packaging it at some point, [electron-react-boilerplate-sqlite3](https://github.com/wds4/electron-react-boilerplate-sqlite3) has got you covered!
 
