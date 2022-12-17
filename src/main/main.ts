@@ -59,6 +59,11 @@ const sqlPath = isDebug
   ? sqlPath_dev
   : sqlPath_prod
 
+const sqlPathsInfo = [sqlPath, sqlPath_dev, sqlPath_prod, isDebug]
+ipcMain.on('ipc-show-userDataPaths', async (event, arg) => {
+  event.reply('ipc-show-userDataPaths', sqlPathsInfo);
+});
+
 const db = new sqlite3.Database(sqlPath, (err) => {
     if (err) console.error('Database opening error: ', err);
 });
