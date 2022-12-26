@@ -104,8 +104,7 @@ Add the following line to close the database once all windows are closed:
 ```bash
 db.close();
 ```
-
-You may or may not want to place your database in .gitignore with the following line:
+Add the folder: `sql` to `release/app`. This is where the database will be placed in dev mode. You may or may not want to place your database in .gitignore with the following line:
 
 ```bash
 release/app/sql
